@@ -1,10 +1,6 @@
 <?php
-include "../core/basics.php";
 
-if (file_exists(PATH_SERVICES . Router::$service . ".php")) {
-    CORE::$SERVICE = new Service(Router::$service);
-} else {
-    CORE::$SERVICE = new SERVICE("404");
-}
+require_once __DIR__.'/../vendor/autoload.php';
 
-CORE::$SERVICE->renderPage();
+$app = require __DIR__.'/../app/app.php';
+$app->run();
